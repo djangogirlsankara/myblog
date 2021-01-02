@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>My Blog Posts</title>
+    <style>
+        .blog-post {
+            margin: 10px;
+            border: 1px black solid;
+            padding: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h1>{{ post.title }}</h1>
+    <div class="blog-post">
+        <p class="blog-post-content">
+            {{ post.content }}
+        </p>
+        <span class="blog-post-author">{{ post.author.username }}</span>
+        <span class="blog-post-date">
+            {{ post.created_at }}
+            {% if post.created_at != post.updated_at %}
+                ({{ post.updated_at }})
+            {% endif %}
+        </span>
+    </div>
+</body>
+</html>
