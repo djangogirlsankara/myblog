@@ -4,29 +4,43 @@
     <meta charset="UTF-8">
     <title>My Blog Posts</title>
     <style>
+        body {
+            background: black;
+            color: white;
+            display: flex;
+            justify-content: center;
+        }
+
+        main {
+            max-width: 1280px;
+        }
+
+        .page-title {
+            text-align: center;
+        }
+
         .blog-post {
             margin: 10px;
-            border: 1px black solid;
+            border: 1px white solid;
             padding: 10px;
+        }
+
+        .blog-post-content {
+            white-space: pre-line;
         }
     </style>
 </head>
 <body>
-    <h1>My Blog Posts</h1>
-    {% for post in blog_posts %}
-        <div class="blog-post">
-            <h2 class="blog-post-title">{{ post.title }}</h2>
-            <p class="blog-post-content">
-                {{ post.preview }}
-            </p>
-            <span class="blog-post-author">{{ post.author.username }}</span>
-            <span class="blog-post-date">
-                {{ post.created_at }}
-                {% if post.created_at != post.updated_at %}
-                    ({{ post.updated_at }})
-                {% endif %}
-            </span>
-        </div>
-    {% endfor %}
+    <main>
+        <h1 class="page-title">My Blog Posts</h1>
+        {% for post in blog_posts %}
+            <div class="blog-post">
+                <h2 class="blog-post-title">{{ post.title }}</h2>
+                <p class="blog-post-content">{{ post.preview }}</p>
+                <span class="blog-post-author">written by {{ post.author.username }}</span>
+                <span class="blog-post-date">at {{ post.created_at }}</span>
+            </div>
+        {% endfor %}
+    </main>
 </body>
 </html>
