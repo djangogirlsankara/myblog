@@ -28,6 +28,10 @@
         .blog-post-content {
             white-space: pre-line;
         }
+
+        .blog-post-title > a {
+            color: white;
+        }
     </style>
 </head>
 <body>
@@ -35,7 +39,9 @@
         <h1 class="page-title">My Blog Posts</h1>
         {% for post in blog_posts %}
             <div class="blog-post">
-                <h2 class="blog-post-title">{{ post.title }}</h2>
+                <h2 class="blog-post-title">
+                    <a href="{% url "blog-post-detail" slug=post.slug %}">{{ post.title }}</a>
+                </h2>
                 <p class="blog-post-content">{{ post.preview }}</p>
                 <span class="blog-post-author">written by {{ post.author.username }}</span>
                 <span class="blog-post-date">at {{ post.created_at }}</span>
