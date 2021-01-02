@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>My Blog Posts</title>
+    <style>
+        .blog-post {
+            margin: 10px;
+            border: 1px black solid;
+            padding: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h1>My Blog Posts</h1>
+    {% for post in blog_posts %}
+        <div class="blog-post">
+            <h2 class="blog-post-title">{{ post.title }}</h2>
+            <p class="blog-post-content">
+                {{ post.content }}
+            </p>
+            <span class="blog-post-author">{{ post.author.username }}</span>
+            <span class="blog-post-date">{{ post.created_at }}({{ post.updated_at }})</span>
+        </div>
+    {% endfor %}
+</body>
+</html>
