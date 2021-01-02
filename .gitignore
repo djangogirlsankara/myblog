@@ -1,0 +1,18 @@
+# IDE
+.idea
+
+# Python
+**__pycache__**
+
+# Pip
+Pipfile
+Pipfile.lock
+venv
+.venv
+
+# Project
+static
+myblog/static
+
+# Django
+**.sqlite3
