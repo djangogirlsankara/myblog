@@ -20,7 +20,12 @@
                 {{ post.content }}
             </p>
             <span class="blog-post-author">{{ post.author.username }}</span>
-            <span class="blog-post-date">{{ post.created_at }}({{ post.updated_at }})</span>
+            <span class="blog-post-date">
+                {{ post.created_at }}
+                {% if post.created_at != post.updated_at %}
+                    ({{ post.updated_at }})
+                {% endif %}
+            </span>
         </div>
     {% endfor %}
 </body>
