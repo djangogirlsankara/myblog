@@ -6,9 +6,12 @@
         <div class="blog-post">
             <p class="blog-post-content">{{ post.preview }}</p>
             <span class="blog-post-author">written by {{ post.author.username }}</span>
-            {% if post.created_at != post.updated_at %}
-                <span class="blog-post-date">at {{ post.created_at }} (edited: {{ post.updated_at }})</span>
-            {% endif %}
+            <span class="blog-post-date">
+                at {{ post.created_at }}
+                {% if post.created_at != post.updated_at %}
+                    (edited: {{ post.updated_at }})
+                {% endif %}
+            </span>
         </div>
     </main>
 {% endblock %}
