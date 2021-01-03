@@ -1,40 +1,6 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>My Blog Posts</title>
-    <style>
-        body {
-            background: black;
-            color: white;
-            display: flex;
-            justify-content: center;
-        }
+{% extends "core/base.html" %}
 
-        main {
-            max-width: 1280px;
-        }
-
-        .page-title {
-            text-align: center;
-        }
-
-        .blog-post {
-            margin: 10px;
-            border: 1px white solid;
-            padding: 10px;
-        }
-
-        .blog-post-content {
-            white-space: pre-line;
-        }
-
-        .blog-post-title > a {
-            color: white;
-        }
-    </style>
-</head>
-<body>
+{% block content %}
     <main>
         <h1 class="page-title">My Blog Posts</h1>
         {% for post in blog_posts %}
@@ -48,5 +14,4 @@
             </div>
         {% endfor %}
     </main>
-</body>
-</html>
+{% endblock %}
